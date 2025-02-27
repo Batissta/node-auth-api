@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { listaPessoas, cadastraPessoa } = require("../controllers/pessoa");
+const { criarPessoa, listarPessoas } = require("../controllers/pessoa");
 
-router.route("/").get(listaPessoas).post(cadastraPessoa);
+router.route("/").get(listarPessoas).post(criarPessoa);
 
 module.exports = router;
