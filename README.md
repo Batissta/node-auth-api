@@ -45,7 +45,7 @@ Me encontre no **LinkedIn:**<br>
 ### Instalação
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/nodejs-mongodb-api.git
+git clone [https://github.com/Batissta/node-auth-api.git](https://github.com/Batissta/node-auth-api.git)
 
 # Instale as dependências
 npm install
@@ -58,17 +58,12 @@ cp .env.example .env
 ```env
 PORT=3000
 MONGODB_URI=sua_uri_mongodb
-JWT_SECRET=seuSegredoSuperSecreto
-BCRYPT_SALT_ROUNDS=12
 ```
 
 ### Executando a API
 ```bash
 # Modo desenvolvimento (com Nodemon)
 npm run dev
-
-# Modo produção
-npm start
 ```
 
 ## 📡 Endpoints Principais
@@ -76,14 +71,9 @@ npm start
 ### Autenticação
 | Método | Endpoint         | Descrição               | Exemplo de Body                  |
 |--------|------------------|-------------------------|-----------------------------------|
-| POST   | /auth/register   | Registra novo usuário   | `{ "email": "user@test.com", "senha": "123" }` |
-| POST   | /auth/login      | Gera token JWT          | `{ "email": "user@test.com", "senha": "123" }` |
+| POST   | /usuarios   | Registra novo usuário   | `{ "apelido": "seuapelidomaiscriativo", "idade":19, "senha": "***" }` |
+| GET   | /usuarios      | Lista todos os usuários criados          | `não é necessário` |
 
-### Recursos Protegidos (requer token no header)
-- `GET /users` - Lista todos os usuários
-- `GET /users/:id` - Busca usuário por ID
-- `PUT /users/:id` - Atualiza usuário
-- `DELETE /users/:id` - Remove usuário
 
 ## 🔐 Boas Práticas de Segurança
 - **Senhas nunca armazenadas em texto puro** (hash com Bcrypt)
@@ -92,6 +82,7 @@ npm start
 - IDs imutáveis gerados com UUID
 
 ## 🤝 Como Contribuir
+Deixa uma estrela no repositório! Depois disso:
 1. Faça um fork do projeto
 2. Crie sua branch (`git checkout -b feature/nova-funcionalidade`)
 3. Commit suas mudanças (`git commit -m 'Add nova funcionalidade'`)
@@ -103,5 +94,5 @@ Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para d
 
 ---
 
-**Feito com ❤️ por [Seu Nome]**  
-📺 **Assista à série completa no YouTube:** [Link da Playlist]
+**Feito por _[Francinaldo Batista]_**  
+📺 **Assista à série completa no YouTube:** [Youtube ->](https://youtu.be/fCQfRp_ME80?si=BcDL40gtHVuT0sDX)
