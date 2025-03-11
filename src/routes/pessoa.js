@@ -1,6 +1,14 @@
-const router = require("express").Router();
-const { criarPessoa, listarPessoas } = require("../controllers/pessoa");
+const Router = require("express").Router();
+const { criarPessoa, listarPessoas, login } = require("../controllers/pessoa");
 
-router.route("/").get(listarPessoas).post(criarPessoa);
+Router.route("/pessoas")
+  .get(listarPessoas)
+  .post(criarPessoa)
+  .put(async (req, res) => {
+    res.status(200).json({ apelido: req.pessoaApelido });
+    console.log("Modifiquei o usuário!");
+  });
 
-module.exports = router;
+Router.route("/pessoas/login").post(login);
+
+module.exports = Router;
