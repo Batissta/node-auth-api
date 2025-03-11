@@ -5,8 +5,7 @@ Router.route("/pessoas")
   .get(listarPessoas)
   .post(criarPessoa)
   .put(async (req, res) => {
-    res.status(200).json({ apelido: req.pessoaApelido });
-    console.log("Modifiquei o usuário!");
+    res.status(200).json({ message: "Modifiquei o usuário!" });
   });
 
 Router.route("/pessoas/login").post(login);
