@@ -1,23 +1,31 @@
 const pessoaModel = require("../models/pessoa");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 module.exports = {
   criarPessoa: async (req, res) => {
     try {
-      const { nome, idade, telefone, password, username } = req.body;
-      const usuario = await pessoaModel.create({
-        nome,
+      const { apelido, idade, senha } = req.body;
+      const senhaCriptografada = bcrypt.hashSync(
+        senha,
+        Number(process.env.ROUNDS)
+      );
+      const pessoa = await pessoaModel.create({
+        apelido,
         idade,
-        telefone,
-        password,
-        username,
+        senha: senhaCriptografada,
       });
-      if (!usuario) throw new Error("O usuário não foi criado");
+      if (!pessoa)
+        throw new Error(
+          "Impossível criar essa pessoa. Leia a documentação da API."
+        );
       res.status(201).json({
-        mensagem: "O usuário foi criado!",
-        usuario: {
-          username,
-          nome,
+        mensagem: "Pessoa criada com sucesso!",
+        pessoa: {
+          apelido,
           idade,
+          senha: senhaCriptografada,
         },
       });
     } catch (error) {
@@ -34,8 +42,31 @@ module.exports = {
         pessoas,
       });
     } catch (error) {
+      res.status(500).json({
+        mensagem: "Algo deu errado... Faço contato com o suporte!",
+      });
+    }
+  },
+  login: async (req, res) => {
+    try {
+      const { apelido, senha } = req.body;
+      const pessoa = await pessoaModel.findOne({ apelido });
+      if (!pessoa)
+        return res.status(400).json({
+          mensagem: "Credenciais Inválidas!",
+        });
+      const isValid = bcrypt.compareSync(senha, pessoa.senha);
+      if (!isValid)
+        return res.status(400).json({
+          mensagem: "Credenciais Inválidas!",
+        });
+      const token = jwt.sign({ apelido: apelido }, process.env.SECRET);
+      return res.status(200).json({
+        token,
+      });
+    } catch (error) {
       res.status(400).json({
-        mensagem: error.message,
+        mensagem: "Credenciais Inválidas!",
       });
     }
   },
