@@ -18,7 +18,7 @@ module.exports = {
       });
       if (!pessoa)
         throw new Error(
-          `Impossível criar essa pessoa. Leia a documentação da API: https://github.com/Batissta/node-auth-api`
+          `Impossível criar a pessoa. Leia a documentação da API para saber como enviar a requisição corretamente: https://github.com/Batissta/node-auth-api`
         );
       res.status(201).json({
         mensagem: "Pessoa criada com sucesso!",
