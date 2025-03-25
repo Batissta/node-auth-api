@@ -79,7 +79,7 @@ npm run dev
 - **Senhas nunca armazenadas em texto puro** (hash com Bcrypt)
 - Tokens JWT com expiração e assinatura criptografada
 - Variáveis sensíveis isoladas em `.env`
-- IDs imutáveis gerados com UUID
+- IDs imutáveis gerados com UUID do node::crypto
 
 ## 🤝 Como Contribuir
 Deixa uma estrela no repositório! Depois disso:
