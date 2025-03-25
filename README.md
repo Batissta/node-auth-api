@@ -40,7 +40,7 @@ Me encontre no **LinkedIn:**<br>
 ### Pré-requisitos
 - Node.js (v18+)
 - MongoDB (local ou Atlas)
-- Postman/Insomnia (para testar endpoints)
+- Postman (para testar endpoints)
 
 ### Instalação
 ```bash
