@@ -85,9 +85,9 @@ npm run dev
 Deixa uma estrela no repositório! Depois disso:
 1. Faça um fork do projeto
 2. Crie sua branch (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Add nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+3. Commit suas mudanças (`git commit -m "Add nova funcionalidade Co-authored-by: Batissta <francinaldofilho05@gmail.com>"`)
+5. Push para a branch (`git push origin feature/nova-funcionalidade`)
+6. Abra um Pull Request
 
 ## 📄 Licença
 Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
