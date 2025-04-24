@@ -1,6 +1,6 @@
 # 🔒 API Node.js + MongoDB: Autenticação Segura com JWT e Bcrypt
 
-Uma API RESTful com autenticação de usuários, desenvolvida em Node.js e MongoDB. **Projeto ideal para aprender fundamentos de back-end, segurança e integração com banco de dados!**<br>
+Uma API RESTful com autenticação de usuários, desenvolvida em Node.js e MongoDB. **Projeto ideal para aprender os fundamentos de back-end, segurança e integração com banco de dados!**<br>
 Todo o passo a passo de criação e desenvolvimento desse projeto se encontra em meu canal do youtube! **Acesse: [youtube.com/@Francinaldob](https://www.youtube.com/@Francinaldob)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
