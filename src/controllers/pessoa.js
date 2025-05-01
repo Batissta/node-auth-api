@@ -36,13 +36,24 @@ module.exports = {
   },
   listarPessoas: async (req, res) => {
     try {
+      // Realizando busca de Pessoas
       const pessoas = await pessoaModel.find();
-      res.status(200).json({
-        quantidade: pessoas.length,
-        pessoas,
+
+      // Verificando se não vai retornar nada ou um array vazio por conta do find
+      if (!pessoas || pessoas.length === 0) {
+        return res.status(404).json({
+          error: "Nehuma pessoa encontrada!"
+        });
+      }
+      // Em caso de sucesso retorna Pessoas corretamente
+      return res.status(200).json({
+        success: true,
+        data: pessoas,
+        quantidade: pessoas.length
       });
+      // Capturando erro em caso de falha
     } catch (error) {
-      res.status(500).json({
+        return res.status(500).json({
         mensagem: "Algo deu errado... Faço contato com o suporte!",
       });
     }
