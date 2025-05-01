@@ -38,14 +38,7 @@ module.exports = {
     try {
       // Realizando busca de Pessoas
       const pessoas = await pessoaModel.find();
-
-      // Verificando se não vai retornar nada ou um array vazio por conta do find
-      if (!pessoas || pessoas.length === 0) {
-        return res.status(404).json({
-          error: "Nehuma pessoa encontrada!"
-        });
-      }
-      // Em caso de sucesso retorna Pessoas corretamente
+      // Retornando corretamente Pessoas
       return res.status(200).json({
         success: true,
         data: pessoas,
